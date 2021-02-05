@@ -2,18 +2,38 @@
 <html>
     <head>
         <title>Como estou produzindo?</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            #sapinho {
+                padding: 3rem;
+            }
+        </style>
     </head>
 
     <body onload="set()">
-        <div class="sapinho">
-            <p id="greetings">
-                
-            </p>
+        <div id="sapinho">
+            <span> <img id='imgClickAndChange' width="300px" src="http://assets.stickpng.com/images/580b57fbd9996e24bc43bc0e.png"></span>
+            <span id ="textotexto">
+                <p id="greetings"></p> Eu sou o sapo vou te dizer como vc está produzinho hoje.
+            </span>
+            <form>
+                <button onclick="start()" type="button">Começar</button>
+            </form>
         </div>
 
         <script>
             let tempo
             let hora 
+            var delay = ( function() {
+                 var timer = 0;
+                 return function(callback, ms) {
+                     clearTimeout (timer);
+                     timer = setTimeout(callback, ms);
+                };
+            })();
+            let randomIndex
             function set(){
                 tempo = new Date();
                 hora = tempo.getHours();
@@ -21,15 +41,50 @@
             }
 
             function greetings() {
+                let quehorassao
                 if (hora > 4 && hora < 12) {
-                    alert ('Bom dia')
+                    quehorassao = "Bom Dia!"
                 }
                 else if (hora > 12 && hora < 18) {
-                    alert ('Boa tarde')
+                    quehorassao = "Boa Tarde!"
                 }
                 else if (hora > 18 && hora < 4) {
-                    alert ('boa noite')
+                    quehorassao = "Boa Noite!"
                 }
+                document.getElementById('greetings').innerHTML=quehorassao
+            }
+
+            function start() {
+                document.getElementById("imgClickAndChange").src = "https://i.gifer.com/WG8P.gif";
+                document.getElementById('textotexto').innerHTML='CALCULANDO';
+
+                randomIndex = Math.floor(Math.random() * 3);
+
+                
+                delay(function(){
+                    sorteiodobem();
+                }, 3000 ); 
+               
+            }
+
+            function sorteiodobem() { 
+                switch(randomIndex) {
+                    case 1:
+                        console.log('deu 1');
+                        document.getElementById("imgClickAndChange").src = "https://image.shutterstock.com/z/stock-photo-old-woman-showing-ok-sign-on-a-white-background-181842587.jpg";
+                         document.getElementById('textotexto').innerHTML='Você está ótimo, não se preocupe <3' 
+                        break
+                    case 2:
+                        console.log('deu 2');
+                        break
+                    case 3:
+                        console.log('deu 3');
+                        break
+                }
+
+               /* 
+               
+                */
             }
 
         </script>
