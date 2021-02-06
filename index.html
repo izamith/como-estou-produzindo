@@ -1,28 +1,58 @@
 <!DOCTYPE html>
+<!--Obrigada pelo interesse!
+Essa loucurinha foi desenvolvida pelo estúdio piscinadepixel;
+Estamos no instagram como @piscinadepixel, temos outros projetos 
+também se quiser dar um tchibum!!!
+-->
 <html>
     <head>
         <title>Como estou produzindo?</title>
         <style>
             body {
                 text-align: center;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
             #sapinho {
-                padding: 3rem;
+                padding-top: 3rem;
+            }
+            .titulo {
+                color: orangered;
+            }
+            .footer {
+                font-size: 12px;
+                padding-top: 5%;
+                color: grey;
+            }
+            #but {
+                margin-top: 20px;
+                width: 200px;
+                height: 50px;
+                border: 0 ;
+                background-color: lawngreen;
+                font-size: 20px;
+            }
+            #but:active {
+                color: lawngreen;
+                background-color: black;
             }
         </style>
     </head>
 
-    <body onload="set()">
+    <body>
         <div id="sapinho">
-            <span> <img id='imgClickAndChange' width="300px" src="http://assets.stickpng.com/images/580b57fbd9996e24bc43bc0e.png"></span>
+            <span> <img id='imgClickAndChange' width="300px" src="https://thumbs.dreamstime.com/b/business-frog-20962509.jpg"></span>
             <span id ="textotexto">
-                <p id="greetings"></p> Eu sou o sapo vou te dizer como vc está produzinho hoje.
+                <h3 class="titulo">COMO ESTOU PRODUZINDO?</h3>
+                <p id="greetings"></p> Recebemos uma denúncia e precisamos </br>analisar como você está fazendo o seu trabalho.
             </span>
             <form>
-                <button onclick="start()" type="button">Começar</button>
+                <button id="but" onclick="start()" type="button">Começar</button>
             </form>
         </div>
-
+        <div class="footer">
+            <p>Declaro que nenhuma das imagens está sob minha propriedade. Todos os direitos autorais estão registrados nas marcas d'água das respectivas imagens.</p>
+            <a target="_blank" href="https://instagram.com/piscinadepixel">Acesse outras loucurinhas</a>
+        </div>
         <script>
             let tempo
             let hora 
@@ -34,12 +64,13 @@
                 };
             })();
             let randomIndex
-            function set(){
+           /* function set(){
                 tempo = new Date();
                 hora = tempo.getHours();
-                greetings();
+               greetings();
             }
-
+            */
+        /*
             function greetings() {
                 let quehorassao
                 if (hora > 4 && hora < 12) {
@@ -48,22 +79,25 @@
                 else if (hora > 12 && hora < 18) {
                     quehorassao = "Boa Tarde!"
                 }
-                else if (hora > 18 && hora < 4) {
+                else if (hora > 18) {
                     quehorassao = "Boa Noite!"
                 }
                 document.getElementById('greetings').innerHTML=quehorassao
             }
+        */
 
             function start() {
                 document.getElementById("imgClickAndChange").src = "https://i.gifer.com/WG8P.gif";
-                document.getElementById('textotexto').innerHTML='CALCULANDO';
+                document.getElementById('textotexto').innerHTML='ANALISANDO';
 
-                randomIndex = Math.floor(Math.random() * 3);
+                randomIndex = Math.floor(Math.random() * 9);
 
-                
+                document.getElementById('but').style.display="none"
                 delay(function(){
                     sorteiodobem();
-                }, 3000 ); 
+                    document.getElementById('but').style.display="inline"
+                    document.getElementById('but').innerText='Tentar Novamente';
+                }, 5000 ); 
                
             }
 
@@ -71,14 +105,48 @@
                 switch(randomIndex) {
                     case 1:
                         console.log('deu 1');
-                        document.getElementById("imgClickAndChange").src = "https://image.shutterstock.com/z/stock-photo-old-woman-showing-ok-sign-on-a-white-background-181842587.jpg";
+                        document.getElementById("imgClickAndChange").src = "https://previews.123rf.com/images/julos/julos1607/julos160721003/60158596-fun-frog.jpg";
                          document.getElementById('textotexto').innerHTML='Você está ótimo, não se preocupe <3' 
                         break
                     case 2:
                         console.log('deu 2');
+                        document.getElementById("imgClickAndChange").src = "https://st.depositphotos.com/1036149/4194/i/950/depositphotos_41945905-stock-photo-cool-frog.jpg";
+                         document.getElementById('textotexto').innerHTML='Você está dando um SHOW!!!!!!!11!' 
                         break
                     case 3:
                         console.log('deu 3');
+                        document.getElementById("imgClickAndChange").src = "https://st2.depositphotos.com/5167347/9201/i/950/depositphotos_92012054-stock-photo-tropical-sport-frog.jpg";
+                         document.getElementById('textotexto').innerHTML='SENSACIONAL. Eu compraria qualquer coisa que você vendesse!!!!!' 
+                        break
+                    case 4:
+                        console.log('deu 5');
+                        document.getElementById("imgClickAndChange").src = "https://st2.depositphotos.com/1036149/7449/i/950/depositphotos_74495525-stock-photo-fun-female-frog.jpg";
+                         document.getElementById('textotexto').innerHTML='A verdade é que tu arrasou... Merece até tomar um vinhozin... ' 
+                        break
+                    case 5:
+                        console.log('deu 6');
+                        document.getElementById("imgClickAndChange").src = "https://static8.depositphotos.com/1036149/859/i/600/depositphotos_8596867-stock-photo-frog-sitting-in-wc-3d.jpg";
+                         document.getElementById('textotexto').innerHTML='Você acha que eu confiaria de estar assim na frente de qualquer um? VOCÊ É BRABO MEU IRMÃO.' 
+                        break
+                    case 6:
+                        console.log('deu 7');
+                        document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/30/3d/d5/303dd5a179e41bdb6ab4e9c36ea6f1ea.jpg";
+                         document.getElementById('textotexto').innerHTML='Sabe o que é essa gota aqui????? SUOR DO SEU TRABALHO DURO, NÃO SE PONHA PARA BAIXO OU VOU FAZER VOCÊ ENGOLIR.' 
+                        break
+                    case 7:
+                        console.log('deu 8');
+                        document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/f6/c4/dd/f6c4dd4dadb47fbeb0528ec6f5852e8d.jpg";
+                         document.getElementById('textotexto').innerHTML='Irmão tu tá pensando muito hoje. USANDO 100% DO CÉREBRO. Vem coisa boa por aí.' 
+                        break
+                    case 8:
+                        console.log('deu 9');
+                        document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/originals/40/80/38/408038cf840dfd55536d747cfefec85b.jpg";
+                         document.getElementById('textotexto').innerHTML='Nem com lupa eu vejo defeito.' 
+                        break
+                    case 9:
+                        console.log('deu 10');
+                        document.getElementById("imgClickAndChange").src = "https://i.pinimg.com/736x/15/d6/fb/15d6fb1d440914246643a1f3d505d450.jpg";
+                         document.getElementById('textotexto').innerHTML='Pegue uma taça aí pois vamos brindar esse trabalho top.' 
                         break
                 }
 
